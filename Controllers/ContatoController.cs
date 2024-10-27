@@ -38,7 +38,7 @@ namespace EntityFramework_CRUD.Controllers
             }
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public IActionResult AtualizarContato(int id, Contato contato)
         {
             var contatoBanco = _context.contatos.Find(id);
@@ -54,13 +54,13 @@ namespace EntityFramework_CRUD.Controllers
                 contatoBanco.Ativos = contato.Ativos;
 
                 _context.contatos.Update(contatoBanco);
-
+                _context.SaveChanges();
                 return Ok(contato);
             }
 
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             var contatoBanco = _context.contatos.Find(id);
