@@ -71,7 +71,7 @@ namespace EntityFramework_CRUD.Controllers
             }
             else
             {
-                _context.Remove(id);
+                _context.Remove(contatoBanco);
 
                 _context.SaveChanges();
                 return Ok(contatoBanco);
