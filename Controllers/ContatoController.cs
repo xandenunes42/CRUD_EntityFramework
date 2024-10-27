@@ -17,7 +17,7 @@ namespace EntityFramework_CRUD.Controllers
         [HttpPost]
         public IActionResult Create(Contato contato)
         {
-            _context.Add(contato);
+            _context.contatos.Add(contato);
             _context.SaveChanges();
 
             return Ok(contato);
@@ -71,7 +71,7 @@ namespace EntityFramework_CRUD.Controllers
             }
             else
             {
-                _context.Remove(contatoBanco);
+                _context.contatos.Remove(contatoBanco);
 
                 _context.SaveChanges();
                 return Ok(contatoBanco);
